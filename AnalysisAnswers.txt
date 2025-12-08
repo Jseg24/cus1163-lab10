@@ -31,6 +31,6 @@ The other solution given runs the current shell which does change the counter.
 I’d automate it by using a system scheduler. 
 The script could be scheduled to run at 2 AM every day. 
 It’s output could be written to a log file or sent to the security team. 
-This ensures permission problems are caught early instead of waiting until the script manually run.
+This ensures permission problems are caught early instead of waiting until the script is manually run.
 
 
