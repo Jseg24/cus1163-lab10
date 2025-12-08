@@ -1,0 +1,36 @@
+1. Why is a world-writable directory worse than a world-writable file?
+
+A world writable file would allow anyone to edit that single file. 
+A world writable directory would allow anyone to edit a directory however they wanted and potentially abuse access. 
+An attacker could create, delete, and move files. That means an attacker could upload malicious scripts or remove important files doing more damage thatt just a world writable file.
+
+2. Explain what -perm -002 means versus -perm /111. Why do we use different options for different searches?
+
+-perm -002 checks for files or directories that are world writable.
+-perm/111 checks for files or directories that are executable.
+Different options are used for different kinds of security problems.
+One is about writable permissions, and the other is about executability so they are used for different kinds of searches.
+
+
+
+3. If you ran this scanner on a production web server and found 50 world-writable files, what immediate actions should you take?
+
+First, I would check to see who created the files or modified them last, and determine whether they have been tampered with. 
+Next, I’d remove world writable access and apply more secure permissions like 644 for files or 755 for directories.
+
+
+4. Explain why using find ... | while read doesn't work for counting, but while read ... done < <(find ...) does. What is the difference?
+
+find ... | while read 
+This loop runs in a subshell so the counter variable is not updating in the main script. 
+The other solution given runs the current shell which does change the counter.
+
+
+5. How would you schedule this script to run automatically every day at 2 AM and email the results to a security team? (JUST NEED THIS ANSWER put answers on github)
+
+I’d automate it by using a system scheduler. 
+The script could be scheduled to run at 2 AM every day. 
+It’s output could be written to a log file or sent to the security team. 
+This ensures permission problems are caught early instead of waiting until the script manually run.
+
+
